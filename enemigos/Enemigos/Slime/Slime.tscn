@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://tn1kljfgjvu0"]
+
+[ext_resource type="Script" uid="uid://j1ydewu062am" path="res://Enemigos/Slime/slime.gd" id="1_jdm42"]
+[ext_resource type="Texture2D" uid="uid://d3el64dvtao2g" path="res://icon.svg" id="1_yf3jm"]
+[ext_resource type="PackedScene" uid="uid://d521gsv7n801" path="res://state_machine.tscn" id="3_tveij"]
+[ext_resource type="Script" uid="uid://ctea8d6ebqf7u" path="res://Enemigos/Slime/States/Idle.gd" id="4_52cmy"]
+[ext_resource type="Script" uid="uid://dg5vf6p1gt1vj" path="res://Enemigos/Slime/States/Jump.gd" id="5_52cmy"]
+[ext_resource type="Script" uid="uid://bijjdw6vql5ur" path="res://Enemigos/Slime/States/Fall.gd" id="6_5a46m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35xbh"]
+size = Vector2(52, 47)
+
+[node name="Slime" type="CharacterBody2D" unique_id=668616276]
+script = ExtResource("1_jdm42")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1152926113]
+position = Vector2(1, -1.000001)
+scale = Vector2(0.4355469, 0.3984375)
+texture = ExtResource("1_yf3jm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442350273]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_35xbh")
+
+[node name="State_Machine" parent="." unique_id=1729175022 node_paths=PackedStringArray("default_state") instance=ExtResource("3_tveij")]
+default_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State_Machine" unique_id=1028139632]
+script = ExtResource("4_52cmy")
+
+[node name="Jump" type="Node" parent="State_Machine" unique_id=154766765]
+script = ExtResource("5_52cmy")
+
+[node name="Fall" type="Node" parent="State_Machine" unique_id=1720262737]
+script = ExtResource("6_5a46m")
+
+[node name="RayCast" type="Node2D" parent="." unique_id=1541052140]
+
+[node name="FloorRay" type="RayCast2D" parent="RayCast" unique_id=2031342017]
+position = Vector2(36, 0)
+target_position = Vector2(2, 82)
+
+[node name="FrontRay" type="RayCast2D" parent="RayCast" unique_id=930804987]
+target_position = Vector2(66, 1)

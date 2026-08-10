@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cykll3cpucj7f"]
+
+[ext_resource type="Script" uid="uid://j1ydewu062am" path="res://Enemigos/Slime/slime.gd" id="1_u7j4q"]
+[ext_resource type="Texture2D" uid="uid://d3el64dvtao2g" path="res://icon.svg" id="2_4j2um"]
+[ext_resource type="PackedScene" uid="uid://d521gsv7n801" path="res://state_machine.tscn" id="3_wn4pv"]
+[ext_resource type="Script" uid="uid://d3px87ibai4g6" path="res://Enemigos/SlideSlime/Idle(slidS).gd" id="4_3gkae"]
+[ext_resource type="Script" uid="uid://dwxepi8aul1ei" path="res://Enemigos/SlideSlime/slide.gd" id="4_w62fy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35xbh"]
+size = Vector2(52, 47)
+
+[node name="SlideSlime" type="CharacterBody2D" unique_id=668616276]
+script = ExtResource("1_u7j4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1152926113]
+position = Vector2(1, -1.000001)
+scale = Vector2(0.4355469, 0.3984375)
+texture = ExtResource("2_4j2um")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442350273]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_35xbh")
+
+[node name="State_Machine" parent="." unique_id=1729175022 node_paths=PackedStringArray("default_state") instance=ExtResource("3_wn4pv")]
+default_state = NodePath("Idle(slidS)")
+
+[node name="Idle(slidS)" type="Node" parent="State_Machine" unique_id=1028139632]
+script = ExtResource("4_3gkae")
+
+[node name="Slide" type="Node" parent="State_Machine" unique_id=1984722289]
+script = ExtResource("4_w62fy")
+
+[node name="RayCast" type="Node2D" parent="." unique_id=1541052140]
+
+[node name="FloorRay" type="RayCast2D" parent="RayCast" unique_id=2031342017]
+position = Vector2(36, 0)
+target_position = Vector2(2, 82)
+
+[node name="FrontRay" type="RayCast2D" parent="RayCast" unique_id=930804987]
+target_position = Vector2(66, 1)
