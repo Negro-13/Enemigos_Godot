@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ch7jsx62akqv"]
+
+[ext_resource type="PackedScene" uid="uid://bb7p04ohen58f" path="res://PlayerIso/character_body_2d.tscn" id="1_uvmsu"]
+
+[node name="IsometricMap" type="Node2D" unique_id=662376218]
+
+[node name="Player" parent="." unique_id=1093220 instance=ExtResource("1_uvmsu")]
+position = Vector2(594, 361)
+scale = Vector2(0.76, 0.68)

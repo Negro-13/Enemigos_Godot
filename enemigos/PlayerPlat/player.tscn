@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy5q6kiqip66t"]
 
-[ext_resource type="Script" uid="uid://cq803vkk0s8jl" path="res://Player/player.gd" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://cq803vkk0s8jl" path="res://PlayerPlat/player.gd" id="1_l8h54"]
 
 [sub_resource type="Gradient" id="Gradient_l8h54"]
 
@@ -20,3 +20,5 @@ texture = SubResource("GradientTexture2D_4ntmi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=341468730]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_btcbx")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=972205998]
