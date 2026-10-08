@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bpyn2021pgmme"]
+
+[ext_resource type="Script" uid="uid://cceh4a8y6m0po" path="res://Enemigos/SeguiminetoBase/seguimiento_base.gd" id="1_18rlx"]
+[ext_resource type="Texture2D" uid="uid://d3el64dvtao2g" path="res://icon.svg" id="2_lktp4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lktp4"]
+
+[node name="SeguimientoBase" type="CharacterBody2D" unique_id=955375654]
+script = ExtResource("1_18rlx")
+speed = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=19448283]
+texture = ExtResource("2_lktp4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=345258374]
+shape = SubResource("CircleShape2D_lktp4")

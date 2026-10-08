@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bxfm54dufsckg"]
+
+[ext_resource type="Texture2D" uid="uid://d3el64dvtao2g" path="res://icon.svg" id="1_48mpt"]
+[ext_resource type="Script" uid="uid://dy6dipec65sja" path="res://Enemigos/disparador/disparador.gd" id="1_gmwls"]
+[ext_resource type="PackedScene" uid="uid://b4mm2sqxdsum4" path="res://Enemigos/disparador/bala.tscn" id="2_f2y0m"]
+
+[node name="Disparador" type="CharacterBody2D" unique_id=734379209]
+script = ExtResource("1_gmwls")
+proyectil = ExtResource("2_f2y0m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1304412195]
+texture = ExtResource("1_48mpt")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=895466749]
+target_position = Vector2(0, 111)
+collision_mask = 3
+
+[node name="ShootPoint" type="Marker2D" parent="." unique_id=391712932]
+
+[node name="Timer" type="Timer" parent="." unique_id=855764495]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

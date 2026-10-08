@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bsgrjf7khtyb1"]
+
+[ext_resource type="Script" uid="uid://c58cxbp6mtd6e" path="res://Enemigos/Waypoint/character_body_2d.gd" id="1_3y3pe"]
+[ext_resource type="Texture2D" uid="uid://d3el64dvtao2g" path="res://icon.svg" id="1_ijudt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3y3pe"]
+radius = 56.88585
+
+[node name="Waypoint_Enemy" type="CharacterBody2D" unique_id=2118060421]
+script = ExtResource("1_3y3pe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1471296668]
+texture = ExtResource("1_ijudt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1736663763]
+shape = SubResource("CircleShape2D_3y3pe")
+
+[node name="Timer" type="Timer" parent="." unique_id=494113656]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

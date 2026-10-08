@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d2h554mwwyqqh"]
+
+[ext_resource type="Script" uid="uid://p1ryryk3y7gs" path="res://Enemigos/Patru/patru.gd" id="1_pi24g"]
+[ext_resource type="Texture2D" uid="uid://d3el64dvtao2g" path="res://icon.svg" id="1_xk3qe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi24g"]
+size = Vector2(20, 71)
+
+[node name="Patru" type="CharacterBody2D" unique_id=1419142326]
+script = ExtResource("1_pi24g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1074893497]
+texture = ExtResource("1_xk3qe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973240273]
+position = Vector2(0, 25.5)
+shape = SubResource("RectangleShape2D_pi24g")
+
+[node name="RayCasts" type="Node2D" parent="." unique_id=163196764]
+
+[node name="RayCastPared" type="RayCast2D" parent="RayCasts" unique_id=1555430570]
+target_position = Vector2(117, 0)
+
+[node name="RayCastPiso" type="RayCast2D" parent="RayCasts" unique_id=1799605970]
+position = Vector2(114, 0)
+target_position = Vector2(-1, 97)
